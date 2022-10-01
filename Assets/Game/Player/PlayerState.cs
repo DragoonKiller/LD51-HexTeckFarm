@@ -3,10 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using Prota.Unity;
 using UnityEngine.InputSystem;
+using System;
+using Prota;
 
 public class PlayerState : Singleton<PlayerState>
 {
-    public int money;
+    [SerializeField] int _biomass;
+    public int biomass
+    {
+        get => _biomass;
+        set
+        {
+            value = value.Clamp(0, 9999);
+            var ori = _biomass;
+            _biomass = value;
+            onBiomassChange?.Invoke(ori, value);
+        }
+    }
     
     public Player player => Player.instance;
     
@@ -29,11 +42,13 @@ public class PlayerState : Singleton<PlayerState>
             
             return null;
         }
-    }
+     }
+    
+    public event Action<int, int> onBiomassChange;
     
     public void Reset()
     {
-        money = 0;
+        biomass = 0;
     }
     
     void Start()

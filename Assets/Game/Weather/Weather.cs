@@ -45,7 +45,11 @@ public class Weather : Singleton<Weather>
 
     private void GenerateSeq()
     {
-        for(int i = 0; i < 30; i++)  // 5min.
+        seq.Add(WeatherType.Sunny);
+        seq.Add(WeatherType.Sunny);
+        seq.Add(WeatherType.Rain);
+        seq.Add(WeatherType.FertilizerRain);
+        for(int i = 4; i < 31; i++)  // 5min.
         {
             var n = UnityEngine.Random.Range(0, 60);
             // n.ToString().Log();
@@ -58,6 +62,7 @@ public class Weather : Singleton<Weather>
             else if(n < 60) w = WeatherType.Drought;
             seq.Add(w);
         }
+        seq.Add(WeatherType.Done);
     }
 
     void Update()

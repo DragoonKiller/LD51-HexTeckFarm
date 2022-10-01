@@ -56,7 +56,6 @@ public class Block : MonoBehaviour
     public void ClearPlant()
     {
         if(this.plant == null) return;
-        GameObject.Destroy(plant.gameObject);
         plant.block = null;
         this.plant = null;
     }

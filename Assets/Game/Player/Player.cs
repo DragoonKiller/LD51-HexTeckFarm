@@ -16,12 +16,12 @@ public class Player : Singleton<Player>
     
     public float velocity = 1;
     
-    public Timer timer;
+    // public Timer timer;
     
     public void Restart()
     {
         target.transform.position = 0.5f * (min + max);
-        timer?.Remove();
+        // timer?.Remove();
     }
 
     void FixedUpdate()
@@ -41,7 +41,7 @@ public class Player : Singleton<Player>
     
     void Update()
     {
-        if(timer != null) return;
+        // if(timer != null) return;
         
         bool success = false;
         var pl = Plants.Get();
@@ -77,7 +77,7 @@ public class Player : Singleton<Player>
             pl.TryPlant(PlantType.Diamond);
         }
         
-        if(success) timer = Timer.New(0.3f, () => timer = null);
+        // if(success) timer = Timer.New(0.3f, () => timer = null);
     }
     
 }
