@@ -10,15 +10,18 @@ public class WeatherReport : MonoBehaviour
 {
     public List<Image> instances = new List<Image>();
     
+    public Transform tweenRoot;
+    
+    public Vector3 stayPos;
+    
+    public int recordCur;
+    
     Weather wt => Weather.Get();
     
-    Vector3 stayPos;
-    
-    int recordCur;
     
     void Awake()
     {
-        stayPos = this.transform.localPosition;
+        stayPos = tweenRoot.localPosition;
     }
     
     void Start()
@@ -29,8 +32,8 @@ public class WeatherReport : MonoBehaviour
     
     void Reset()
     {
-        this.transform.localPosition = stayPos.WithY(stayPos.y - 400);
-        this.transform.TweenMoveY(stayPos.y, 0.5f).SetEase(TweenEase.quadOut);
+        tweenRoot.localPosition = stayPos.WithY(stayPos.y - 400);
+        tweenRoot.TweenMoveY(stayPos.y, 0.5f).SetEase(TweenEase.quadOut);
         this.recordCur = -1;
     }
     
