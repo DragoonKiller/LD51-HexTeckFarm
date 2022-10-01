@@ -23,6 +23,7 @@ public class WeatherReport : Singleton<WeatherReport>
     void Awake()
     {
         stayPos = tweenRoot.localPosition;
+        stayPos.ToString().Log();
     }
     
     void Start()
@@ -33,8 +34,7 @@ public class WeatherReport : Singleton<WeatherReport>
     
     public void Reset()
     {
-        tweenRoot.localPosition = stayPos.WithY(stayPos.y - 400);
-        tweenRoot.TweenMoveY(stayPos.y, 0.5f).SetEase(TweenEase.quadOut);
+        tweenRoot.localPosition = stayPos.WithY(stayPos.y + 400);
         this.recordCur = -1;
     }
     
@@ -44,6 +44,7 @@ public class WeatherReport : Singleton<WeatherReport>
     {
         if(wt.cur != this.recordCur)
         {
+            if(this.recordCur == -1) tweenRoot.TweenMoveY(stayPos.y, 0.5f).SetEase(TweenEase.quadOut);
             this.recordCur = wt.cur;
             SetCurrentState();
             PlayAnim();

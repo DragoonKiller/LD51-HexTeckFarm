@@ -20,7 +20,7 @@ public enum WeatherType
 
 public class Weather : Singleton<Weather>
 {
-    public WeatherType currentWeather => seq.Count == 0 || cur >= seq.Count ? WeatherType.None : seq[cur];
+    public WeatherType currentWeather => seq.Count < 0 || cur >= seq.Count ? WeatherType.None : seq[cur];
     
     public List<WeatherType> seq = new List<WeatherType>();
     
@@ -30,20 +30,24 @@ public class Weather : Singleton<Weather>
     
     public float lastChangeTime = 0;
     
-    void Start()
+    public bool started = false;
+    
+    public void Reset()
     {
-        cur = 0;
+        started = false;
+        cur = -1;
         seq.Clear();
         GenerateSeq();
         timer?.Remove();
-        timer = Timer.New(10, true, NextWeather);
     }
+    
+    void Start() => Reset();
 
     private void GenerateSeq()
     {
         for(int i = 0; i < 30; i++)  // 5min.
         {
-            var n = UnityEngine.Random.Range(0, 50);
+            var n = UnityEngine.Random.Range(0, 60);
             // n.ToString().Log();
             WeatherType w = WeatherType.None;
             if(n < 10) w = WeatherType.Sunny;
@@ -51,15 +55,22 @@ public class Weather : Singleton<Weather>
             else if(n < 30) w = WeatherType.FertilizerRain;
             else if(n < 40) w = WeatherType.ThunderStrom;
             else if(n < 50) w = WeatherType.Flood;
+            else if(n < 60) w = WeatherType.Drought;
             seq.Add(w);
         }
     }
 
-    public void Restart() => Start();
-    
     void Update()
     {
-        
+        if(started) return;
+        bool hasPlanted = false;
+        foreach(var b in Ground.instance.blocks) hasPlanted |= b?.plant != null;
+        if(hasPlanted)
+        {
+            started = true;
+            NextWeather();
+            timer = Timer.New(10, true, NextWeather);        // the actual start.
+        }
     }
     
     void NextWeather()
