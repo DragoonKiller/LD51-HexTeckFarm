@@ -13,6 +13,8 @@ public class Block : MonoBehaviour
     
     public Plant plant;
     
+    public GameObject model;
+    
     public GameObject shieldTemplate;
     
     [Header("Runtime")]
@@ -36,6 +38,11 @@ public class Block : MonoBehaviour
                 shield = null;
             }
         }
+    }
+    
+    void Start()
+    {
+        model.transform.rotation = Quaternion.Euler(90, 90 * UnityEngine.Random.Range(0, 4), 0);
     }
     
     void Update()
@@ -63,11 +70,11 @@ public class Block : MonoBehaviour
     
     public static Vector3 Pos(Vector2Int coord)
     {
-        return new Vector3(coord.x * 2 + 1.5f, 0f, coord.y * 2 + 1.5f);
+        return new Vector3(coord.x * 2 + 2f, 0f, coord.y * 2 + 2f);
     }
     
     public static Vector2Int Coord(Vector3 pos)
     {
-        return new Vector2Int(((pos.x - 1.5f) / 2).RoundToInt(), ((pos.z - 1.5f) / 2).RoundToInt());
+        return new Vector2Int(((pos.x - 2f) / 2).RoundToInt(), ((pos.z - 2f) / 2).RoundToInt());
     }
 }

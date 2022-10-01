@@ -14,7 +14,7 @@ public class Ground : Singleton<Ground>
     
     [Header("Runtime")]
     
-    public Block[,] blocks = new Block[12, 12];
+    public Block[,] blocks = new Block[9, 9];
     
     void Start()
     {
@@ -26,7 +26,7 @@ public class Ground : Singleton<Ground>
                 coords.Add(new Vector2Int(i, j));
         
         coords.Shuffle();
-        coords.Shrink(25);
+        coords.Shrink(15);
         
         foreach(var c in coords)
         {

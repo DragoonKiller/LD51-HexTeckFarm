@@ -6,7 +6,7 @@ using Prota;
 using Prota.Unity;
 
 using Prota.Timer;
-using Prota.Tweening;
+using Prota.Tween;
 
 public abstract class Plant : MonoBehaviour
 {
@@ -45,7 +45,7 @@ public abstract class Plant : MonoBehaviour
         harvested = true;
         block.ClearPlant();
         
-        var tween = this.transform.TweenMove(this.transform.position + Vector3.up * 0.5f, 0.8f);
+        var tween = this.transform.TweenMove(this.transform.localPosition + Vector3.up * 2f, 0.8f);
         tween.SetEase(TweenEase.quadOut);
         var ntween = this.transform.TweenScale(Vector3.zero, 0.8f);
         ntween.SetEase(TweenEase.quadIn);

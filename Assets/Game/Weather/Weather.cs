@@ -4,6 +4,7 @@ using UnityEngine;
 using Prota.Unity;
 using Prota.Timer;
 using System;
+using Prota.Tween;
 
 [Serializable]
 public enum WeatherType
@@ -18,11 +19,30 @@ public enum WeatherType
     Done,
 }
 
+
+[Serializable]
+public class WeatherLightColor
+{
+    public Color none;
+    public Color sunny;
+    public Color rain;
+    public Color fertilizerRain;
+    public Color thunderStrom;
+    public Color drought;
+    public Color flood;
+    public Color done;
+}
+
+
 public class Weather : Singleton<Weather>
 {
     public WeatherType currentWeather => seq.Count < 0 || cur >= seq.Count ? WeatherType.None : seq[cur];
     
     public List<WeatherType> seq = new List<WeatherType>();
+    
+    public WeatherLightColor lightColor;
+    
+    public new Light light;
     
     public int cur = 0;
     
@@ -39,6 +59,7 @@ public class Weather : Singleton<Weather>
         seq.Clear();
         GenerateSeq();
         timer?.Remove();
+        this.light.color = GetLightColor(WeatherType.Sunny);
     }
     
     void Start() => Reset();
@@ -82,7 +103,26 @@ public class Weather : Singleton<Weather>
     {
         cur += 1;
         lastChangeTime = Time.time;
+        
+        var sourceColor = this.light.color;
+        ProtaTweenManager.instance.New(TweenType.Transparency, this.light, (h, t) => {
+            var targetColor = GetLightColor(this.currentWeather);
+            this.light.color = (sourceColor, targetColor).Lerp(t);
+        }).SetEase(TweenEase.quadInOut).SetFrom(0).SetTo(1).Start(1);
     }
     
+    public Color GetLightColor(WeatherType type)
+    {
+        return type switch {
+            WeatherType.Done => lightColor.done,
+            WeatherType.Rain => lightColor.rain,
+            WeatherType.Drought => lightColor.drought,
+            WeatherType.Sunny => lightColor.sunny,
+            WeatherType.Flood => lightColor.flood,
+            WeatherType.FertilizerRain => lightColor.fertilizerRain,
+            WeatherType.ThunderStrom => lightColor.thunderStrom,
+            _ => lightColor.none,
+        };
+    }
     
 }

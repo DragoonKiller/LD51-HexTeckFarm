@@ -4,7 +4,7 @@ using UnityEngine;
 using Prota;
 using System;
 using UnityEngine.UI;
-using Prota.Tweening;
+using Prota.Tween;
 using Prota.Unity;
 
 public class WeatherReport : Singleton<WeatherReport>
@@ -58,7 +58,7 @@ public class WeatherReport : Singleton<WeatherReport>
         for(int i = 0; i < 8; i++)
         {
             var tr = instances[i].transform;
-            tr.position = tr.position.WithX(pos[i + 1]);
+            tr.localPosition = tr.localPosition.WithX(pos[i + 1]);
             tr.TweenMoveX(pos[i], 0.5f).SetEase(TweenEase.quadOut);
         }
     }

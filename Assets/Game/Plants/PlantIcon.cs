@@ -7,7 +7,7 @@ using Prota;
 using Prota.Unity;
 
 using Prota.Timer;
-using Prota.Tweening;
+using Prota.Tween;
 
 
 public class PlantIcon : MonoBehaviour
@@ -33,7 +33,7 @@ public class PlantIcon : MonoBehaviour
     {
         var p = PlayerState.instance;
         var enough = p.biomass >= consume;
-        mask.gameObject.SetActive(p.selection != null || !enough);
+        mask.gameObject.SetActive(p.selection == null || !enough);
         
         consumeText.color = enough ? enoughColor : notEnoughColor;
     }

@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 using System;
 
 using UnityEngine.UI;
-using Prota.Tweening;
+using Prota.Tween;
 
 public class BiomassCounter : MonoBehaviour
 {
@@ -31,11 +31,12 @@ public class BiomassCounter : MonoBehaviour
     {
         biomassCounter.text = PlayerState.instance.biomass.ToString();
         
-        ProtaTweeningManager.instance.Remove(this, TweenType.Transparency);
-        addCounter.text = (to - from).ToString();
-        ProtaTweeningManager.instance.New(TweenType.Transparency, this, (h, t) => {
+        ProtaTweenManager.instance.Remove(this, TweenType.Transparency);
+        addCounter.text = "+" + (to - from).ToString();
+        ProtaTweenManager.instance.New(TweenType.Transparency, this, (h, t) => {
             addCounter.color = addCounter.color.WithA(1 - t);
-        });
+        }).SetFrom(1).SetTo(0).Start(1.2f);
+        
     }
     
 }
