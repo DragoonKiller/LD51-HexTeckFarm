@@ -10,7 +10,7 @@ public class WeatherText : MonoBehaviour
     
     void Update()
     {
-        var displayTime = ((9.9999f - (Time.time - Weather.Get().lastChangeTime)) * 10).Floor() / 10;
+        var displayTime = ((9.9999f - (Time.time - Weather.instance.lastChangeTime)) * 10).Floor() / 10;
         text.text = displayTime.Max(0).ToString("0.0");
     }
 }

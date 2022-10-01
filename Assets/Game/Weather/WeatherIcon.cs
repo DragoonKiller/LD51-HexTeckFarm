@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Prota;
+using Prota.Unity;
 using Prota.Timer;
 using System;
 
@@ -14,6 +14,7 @@ public class WeatherIcon : Singleton<WeatherIcon>
     public Sprite thunderStorm;
     public Sprite drought;
     public Sprite flood;
+    public Sprite done;
     public Sprite none;
     
     public Sprite GetSprite(WeatherType type)
@@ -25,6 +26,7 @@ public class WeatherIcon : Singleton<WeatherIcon>
             WeatherType.Flood => flood,
             WeatherType.ThunderStrom => thunderStorm,
             WeatherType.Rain => rain,
+            WeatherType.Done => done,
             _ => none,
         };
     }

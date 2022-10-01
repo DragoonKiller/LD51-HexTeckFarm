@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Prota;
+using Prota.Unity;
 using Prota.Timer;
 using System;
 
@@ -15,6 +15,7 @@ public enum WeatherType
     ThunderStrom,
     Drought,
     Flood,
+    Done,
 }
 
 public class Weather : Singleton<Weather>
@@ -40,7 +41,7 @@ public class Weather : Singleton<Weather>
 
     private void GenerateSeq()
     {
-        for(int i = 0; i < 12; i++)
+        for(int i = 0; i < 30; i++)  // 5min.
         {
             var n = UnityEngine.Random.Range(0, 50);
             // n.ToString().Log();

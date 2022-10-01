@@ -5,8 +5,9 @@ using Prota;
 using System;
 using UnityEngine.UI;
 using Prota.Tweening;
+using Prota.Unity;
 
-public class WeatherReport : MonoBehaviour
+public class WeatherReport : Singleton<WeatherReport>
 {
     public List<Image> instances = new List<Image>();
     
@@ -30,7 +31,7 @@ public class WeatherReport : MonoBehaviour
         SetCurrentState();
     }
     
-    void Reset()
+    public void Reset()
     {
         tweenRoot.localPosition = stayPos.WithY(stayPos.y - 400);
         tweenRoot.TweenMoveY(stayPos.y, 0.5f).SetEase(TweenEase.quadOut);
@@ -67,7 +68,7 @@ public class WeatherReport : MonoBehaviour
         for(int i = 0; i < 8; i++)
         {
             var w = i + wt.cur < seq.Count ? seq[i + wt.cur] : WeatherType.None;
-            var sprite = WeatherIcon.Get().GetSprite(w);
+            var sprite = WeatherIcon.instance.GetSprite(w);
             instances[i].sprite = sprite;
         }
     }

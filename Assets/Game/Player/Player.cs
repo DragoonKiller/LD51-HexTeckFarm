@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Prota.Unity;
 using Prota;
 using UnityEngine.InputSystem;
+using System;
 
 public class Player : Singleton<Player>
 {
@@ -11,8 +13,13 @@ public class Player : Singleton<Player>
     public Vector3 min;
     public Vector3 max;
     
-    public float velocity = 1; 
-    
+    public float velocity = 1;
+
+    public void Restart()
+    {
+        target.transform.position = 0.5f * (min + max);
+    }
+
     void FixedUpdate()
     {
         var targetDir = Vector3.zero;
