@@ -15,11 +15,8 @@ public class SolarPanel : Plant
     
     public SpriteRenderer rd => chargeAnim.sprite;
     
-    bool started = false;
-    
     protected override void OnStart()
     {
-        started = true;
         chargeAnim.Restart();
         chargeAnim.currentTime = UnityEngine.Random.Range(0f, chargeAnim.duration);
     }

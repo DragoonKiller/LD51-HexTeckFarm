@@ -56,8 +56,6 @@ public abstract class Plant : MonoBehaviour
     
     public bool readyToHarvest => ripeRatio >= 1;
     
-    public bool shielded => block.shielded;
-    
     protected Weather wt => Weather.instance;
     
     public GrowSpeed growSpeed = new GrowSpeed();

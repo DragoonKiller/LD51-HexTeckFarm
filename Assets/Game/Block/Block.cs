@@ -5,6 +5,7 @@ using Prota.Unity;
 using Prota.Timer;
 using System;
 using Prota;
+using Prota.Tween;
 
 [ExecuteAlways]
 public class Block : MonoBehaviour
@@ -15,34 +16,30 @@ public class Block : MonoBehaviour
     
     public GameObject model;
     
-    public GameObject shieldTemplate;
+    public GameObject particleTemplate;
     
-    [Header("Runtime")]
-    [SerializeField] GameObject shield;
-    
-    public bool shielded
-    {
-        get => shield = null;
-        set
-        {
-            if(value)
-            {
-                if(shield != null) return;
-                shield = GameObject.Instantiate(shieldTemplate, this.transform, false); 
-                shield.transform.localPosition = Vector3.zero;
-            }
-            else
-            {
-                if(shield = null) return;
-                GameObject.Destroy(shield);
-                shield = null;
-            }
-        }
-    }
+    public Timer particleTimer;
     
     void Start()
     {
         model.transform.rotation = Quaternion.Euler(90, 90 * UnityEngine.Random.Range(0, 4), 0);
+        
+        
+        particleTimer = Timer.New(0.3f, true, () => {
+            
+            if(plant == null) return;
+            if(plant.GetGrowSpeed() <= 0) return;
+            
+            var min = Pos(coord) - new Vector3(1, 0, 1);
+            var max = Pos(coord) + new Vector3(1, 0, 1);
+            var pos = (min, max).Random();
+            var g = GameObject.Instantiate(particleTemplate, pos, Quaternion.identity, this.transform);
+            g.SetActive(true);
+            g.transform.position = g.transform.position.WithY(-0.5f);
+            g.transform.TweenMoveY(1, 2);
+            g.GetComponent<SpriteRenderer>().TweenColorA(0, 2);
+            Timer.New(2f, () => GameObject.Destroy(g));
+        });
     }
     
     void Update()

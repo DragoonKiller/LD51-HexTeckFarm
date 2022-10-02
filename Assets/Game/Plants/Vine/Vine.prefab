@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7b89950606662438a89eede27c819e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ripeGrow: 10
+  ripeGrow: 15
   block: {fileID: 0}
   type: 2
   _grow: 0

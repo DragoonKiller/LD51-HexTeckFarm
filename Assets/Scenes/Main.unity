@@ -1170,7 +1170,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: MainCamera
@@ -1179,14 +1178,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -1237,8 +1228,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.28840074, y: 0, z: 0, w: 0.9575098}
-  m_LocalPosition: {x: 15.02, y: 16.4, z: -22.1}
+  m_LocalRotation: {x: 0.22812779, y: 0, z: 0, w: 0.9736312}
+  m_LocalPosition: {x: 15.02, y: 12.4, z: -22.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2346,6 +2337,10 @@ PrefabInstance:
       propertyPath: light
       value: 
       objectReference: {fileID: 705507994}
+    - target: {fileID: 3530952211804262569, guid: dbe27b00b984c154a83d4755e54d40a3, type: 3}
+      propertyPath: scene
+      value: 
+      objectReference: {fileID: 1130947741}
     - target: {fileID: 3530952211804262570, guid: dbe27b00b984c154a83d4755e54d40a3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2393,10 +2388,6 @@ PrefabInstance:
     - target: {fileID: 3530952211804262571, guid: dbe27b00b984c154a83d4755e54d40a3, type: 3}
       propertyPath: m_Name
       value: Weather
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530952211804262571, guid: dbe27b00b984c154a83d4755e54d40a3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbe27b00b984c154a83d4755e54d40a3, type: 3}
@@ -2455,10 +2446,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3598381182148610589, guid: 62500698f9c7b0649b8c92b3a5cfc1ed, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62500698f9c7b0649b8c92b3a5cfc1ed, type: 3}
 --- !u!1001 &4087849533626562579
@@ -2515,10 +2502,6 @@ PrefabInstance:
     - target: {fileID: 4087849534320595541, guid: 24aedb4c31a6b68428a43127557d90df, type: 3}
       propertyPath: m_Name
       value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 4087849534320595541, guid: 24aedb4c31a6b68428a43127557d90df, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24aedb4c31a6b68428a43127557d90df, type: 3}
@@ -2726,10 +2709,6 @@ PrefabInstance:
     - target: {fileID: 7765787069865282792, guid: 2001cf8fe2db4594aa64d729e6163428, type: 3}
       propertyPath: m_Name
       value: Plants
-      objectReference: {fileID: 0}
-    - target: {fileID: 7765787069865282792, guid: 2001cf8fe2db4594aa64d729e6163428, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7765787069865282799, guid: 2001cf8fe2db4594aa64d729e6163428, type: 3}
       propertyPath: m_RootOrder

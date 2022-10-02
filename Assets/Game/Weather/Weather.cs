@@ -35,6 +35,19 @@ public class WeatherLightColor
     public Color done;
 }
 
+[Serializable]
+public class WeatherPrefab
+{
+    public GameObject none;
+    public GameObject sunny;
+    public GameObject rain;
+    public GameObject fertilizerRain;
+    public GameObject thunderStrom;
+    public GameObject drought;
+    public GameObject flood;
+    public GameObject done;
+}
+
 
 public class Weather : Singleton<Weather>
 {
@@ -42,7 +55,9 @@ public class Weather : Singleton<Weather>
     
     public List<WeatherType> seq = new List<WeatherType>();
     
-    public WeatherLightColor lightColor;
+    public WeatherLightColor lightColor = new WeatherLightColor();
+    
+    public WeatherPrefab weatherPrefab = new WeatherPrefab();
     
     public new Light light;
     
@@ -53,6 +68,8 @@ public class Weather : Singleton<Weather>
     public float lastChangeTime = 0;
     
     public bool started = false;
+    
+    public GameObject scene;
     
     public void Reset()
     {
@@ -68,7 +85,7 @@ public class Weather : Singleton<Weather>
 
     private void GenerateSeq()
     {
-        seq.Add(WeatherType.Sunny);
+        seq.Add(WeatherType.Flood);
         seq.Add(WeatherType.Sunny);
         seq.Add(WeatherType.Rain);
         seq.Add(WeatherType.FertilizerRain);
@@ -133,6 +150,9 @@ public class Weather : Singleton<Weather>
             var targetColor = GetLightColor(this.currentWeather);
             this.light.color = (sourceColor, targetColor).Lerp(t);
         }).SetEase(TweenEase.quadInOut).SetFrom(0).SetTo(1).Start(1);
+        
+        var g = GetWeatherPrefab(this.currentWeather);
+        if(g != null) GameObject.Instantiate(g);
     }
     
     public Color GetLightColor(WeatherType type)
@@ -146,6 +166,20 @@ public class Weather : Singleton<Weather>
             WeatherType.FertilizerRain => lightColor.fertilizerRain,
             WeatherType.ThunderStrom => lightColor.thunderStrom,
             _ => lightColor.none,
+        };
+    }
+    
+    public GameObject GetWeatherPrefab(WeatherType type)
+    {
+        return type switch {
+            WeatherType.Done => weatherPrefab.done,
+            WeatherType.Rain => weatherPrefab.rain,
+            WeatherType.Drought => weatherPrefab.drought,
+            WeatherType.Sunny => weatherPrefab.sunny,
+            WeatherType.Flood => weatherPrefab.flood,
+            WeatherType.FertilizerRain => weatherPrefab.fertilizerRain,
+            WeatherType.ThunderStrom => weatherPrefab.thunderStrom,
+            _ => weatherPrefab.none,
         };
     }
     

@@ -16,6 +16,8 @@ public class Ground : Singleton<Ground>
     
     public Block[,] blocks = new Block[9, 9];
     
+    public Vector2Int size => new Vector2Int(blocks.GetLength(0), blocks.GetLength(1));
+    
     void Start()
     {
         blocks.Fill((_, _) => null); 

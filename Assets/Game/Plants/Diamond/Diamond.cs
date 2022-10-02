@@ -29,7 +29,6 @@ public class Diamond : Plant
         if(block != null && timer == null)
         {
             timer = Timer.New(1, true, () => {
-                $"Tiemr trigger { Time.frameCount }".Log();
                 if(this == null)
                 {
                     ClearTimer();
@@ -50,7 +49,6 @@ public class Diamond : Plant
     
     void ClearTimer()
     {
-        "Clear timer".Log();
         timer?.Remove();
         timer = null;
     }
@@ -64,15 +62,10 @@ public class Diamond : Plant
         anim.gameObject.SetActive(true);
         anim.Restart();
         
-        
-        $"Anim Start { Time.frameCount } :: { anim.duration }".Log();
-        
         Timer.New(anim.duration - 0.1f, () => {
-            $"t1 { anim.duration - 0.1f }".Log();
             rd.gameObject.SetActive(false);
         });
         Timer.New(anim.duration, () => {
-            $"t2 { anim.duration }".Log();
             GameObject.Destroy(this.gameObject);
         });
     }

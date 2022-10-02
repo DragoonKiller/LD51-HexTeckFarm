@@ -55,10 +55,20 @@ MonoBehaviour:
     drought: {r: 1, g: 0.325142, b: 0, a: 1}
     flood: {r: 0.045923818, g: 0.045927778, b: 0.2264151, a: 1}
     done: {r: 1, g: 0.73333335, b: 0, a: 1}
+  weatherPrefab:
+    none: {fileID: 0}
+    sunny: {fileID: 0}
+    rain: {fileID: 2215748007829630330, guid: 5e087de5645747b40b9e3b8e20afe333, type: 3}
+    fertilizerRain: {fileID: 7968921307255009642, guid: 1cb82ef6fd643404db836d77ba669a6e, type: 3}
+    thunderStrom: {fileID: 4115783137820066457, guid: 37065d92d9295c641ae2b96e875bbbcf, type: 3}
+    drought: {fileID: 2409984055351094700, guid: 2ae3af06adc3f8d4d8d8c8604aca017a, type: 3}
+    flood: {fileID: 3642447864376018966, guid: 25748f113ce32624a9ee87fd0c19ab04, type: 3}
+    done: {fileID: 0}
   light: {fileID: 0}
   cur: 0
   lastChangeTime: 0
   started: 0
+  scene: {fileID: 0}
 --- !u!114 &3530952211804262568
 MonoBehaviour:
   m_ObjectHideFlags: 0

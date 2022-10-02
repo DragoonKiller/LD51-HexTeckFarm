@@ -32,7 +32,7 @@ public class BiomassCounter : MonoBehaviour
         biomassCounter.text = PlayerState.instance.biomass.ToString();
         
         ProtaTweenManager.instance.Remove(this, TweenType.Transparency);
-        addCounter.text = "+" + (to - from).ToString();
+        addCounter.text = (to - from > 0 ? "+" : "") + (to - from).ToString();
         ProtaTweenManager.instance.New(TweenType.Transparency, this, (h, t) => {
             addCounter.color = addCounter.color.WithA(1 - t);
         }).SetFrom(1).SetTo(0).Start(1.2f);

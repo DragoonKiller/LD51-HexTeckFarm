@@ -16,7 +16,7 @@ public class PlayerState : Singleton<PlayerState>
         get => _biomass;
         set
         {
-            value = value.Clamp(0, 999);
+            value = value.Clamp(0, 99);
             var ori = _biomass;
             _biomass = value;
             onBiomassChange?.Invoke(ori, value);
