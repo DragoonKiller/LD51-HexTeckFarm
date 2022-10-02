@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ee8f91351d9cc041b0639ef779f933b, type: 3}
   - {fileID: 21300000, guid: d33190afcd8edc548bd888ad99ee8134, type: 3}
   - {fileID: 21300000, guid: 91821a807e3c489419db6eb54824a8cd, type: 3}
-  - {fileID: 21300000, guid: cd09b3481fd001240aab719205c8227e, type: 3}
+  - {fileID: 21300000, guid: 63f337e46baf54847a763292ae530260, type: 3}
   frames:
   - {fileID: 21300000, guid: 637f3f50050348243ba02263dc274525, type: 3}
   - {fileID: 21300000, guid: 637f3f50050348243ba02263dc274525, type: 3}
@@ -38,8 +38,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d33190afcd8edc548bd888ad99ee8134, type: 3}
   - {fileID: 21300000, guid: d33190afcd8edc548bd888ad99ee8134, type: 3}
   - {fileID: 21300000, guid: 91821a807e3c489419db6eb54824a8cd, type: 3}
-  - {fileID: 21300000, guid: cd09b3481fd001240aab719205c8227e, type: 3}
+  - {fileID: 21300000, guid: 63f337e46baf54847a763292ae530260, type: 3}
   anchors: []
-  duration: 16
+  frameCount: 18
   fps: 60
   loop: 0

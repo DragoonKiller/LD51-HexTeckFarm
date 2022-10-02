@@ -26,6 +26,8 @@ public class SolarPanel : Plant
     
     public override void UpdateDisplay(float from, float to)
     {
+        chargeAnim.speedMultiply = GetGrowSpeed();
+        
         if(ripeRatio >= 1)
         {
             chargeComplete.gameObject.SetActive(true);

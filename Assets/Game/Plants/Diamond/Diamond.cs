@@ -14,18 +14,23 @@ public class Diamond : Plant
     
     public SpriteRenderer rd;
     
+    protected override void OnStart()
+    {
+        anim.gameObject.SetActive(false);
+        rd.gameObject.SetActive(true);
+    }
+    
     public override bool TryGrowStep()
     {
         // diamond won't grow.
         // instead, in non-flood weather, it has 6% chance to be devolved per sec.
         if(wt.currentWeather == WeatherType.Flood) return false;
         
-        if(timer == null)
+        if(block != null && timer == null)
         {
-            anim.gameObject.SetActive(false);
-            rd.gameObject.SetActive(true);
             timer = Timer.New(1, true, () => {
-                if(this.gameObject == null)
+                $"Tiemr trigger { Time.frameCount }".Log();
+                if(this == null)
                 {
                     ClearTimer();
                     return;
@@ -45,19 +50,30 @@ public class Diamond : Plant
     
     void ClearTimer()
     {
+        "Clear timer".Log();
         timer?.Remove();
         timer = null;
     }
     
     void DestroySelf()
     {
+        (timer != null).Assert();
         ClearTimer();
         block.ClearPlant();
         
         anim.gameObject.SetActive(true);
         anim.Restart();
         
-        Timer.New(anim.duration - 0.1f, () => rd.gameObject.SetActive(false));
-        Timer.New(anim.duration, () => GameObject.Destroy(this.gameObject));
+        
+        $"Anim Start { Time.frameCount } :: { anim.duration }".Log();
+        
+        Timer.New(anim.duration - 0.1f, () => {
+            $"t1 { anim.duration - 0.1f }".Log();
+            rd.gameObject.SetActive(false);
+        });
+        Timer.New(anim.duration, () => {
+            $"t2 { anim.duration }".Log();
+            GameObject.Destroy(this.gameObject);
+        });
     }
 }

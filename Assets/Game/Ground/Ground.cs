@@ -26,7 +26,7 @@ public class Ground : Singleton<Ground>
                 coords.Add(new Vector2Int(i, j));
         
         coords.Shuffle();
-        coords.Shrink(15);
+        coords.Shrink(25);
         
         foreach(var c in coords)
         {

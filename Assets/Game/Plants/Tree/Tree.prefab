@@ -48,7 +48,7 @@ MonoBehaviour:
   ripeGrow: 10
   block: {fileID: 0}
   type: 5
-  grow: 0
+  _grow: 0
   harvested: 0
   growSpeed:
     sunny: 1
@@ -56,6 +56,14 @@ MonoBehaviour:
     thunderStorm: 0
     fertilizerRain: 2
     drought: 0.5
+    flood: 0
+    none: 0
+  adaption:
+    sunny: 1
+    rain: -1
+    thunderStorm: 0
+    fertilizerRain: 1
+    drought: -1
     flood: 0
     none: 0
   rd: {fileID: 6888461581796055194}
@@ -94,7 +102,7 @@ Transform:
   m_GameObject: {fileID: 4540450132719815336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.88, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7137989982177063255}

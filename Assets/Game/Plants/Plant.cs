@@ -22,6 +22,18 @@ public class GrowSpeed
     public float none;
 }
 
+[Serializable]
+public class PlantAdaptionData
+{
+    public PlantAdaptionType sunny;
+    public PlantAdaptionType rain;
+    public PlantAdaptionType thunderStorm;
+    public PlantAdaptionType fertilizerRain;
+    public PlantAdaptionType drought;
+    public PlantAdaptionType flood;
+    public PlantAdaptionType none;
+}
+
 
 public abstract class Plant : MonoBehaviour
 {
@@ -31,7 +43,12 @@ public abstract class Plant : MonoBehaviour
     
     public PlantType type;
     
-    public float grow;
+    [SerializeField] float _grow;
+    public float grow
+    {
+        get => _grow;
+        set => _grow = value.Clamp(0, ripeGrow);
+    }
     
     public bool harvested = false;
     
@@ -44,6 +61,8 @@ public abstract class Plant : MonoBehaviour
     protected Weather wt => Weather.instance;
     
     public GrowSpeed growSpeed = new GrowSpeed();
+    
+    public PlantAdaptionData adaption = new PlantAdaptionData();
     
     public virtual bool TryGrowStep()
     {

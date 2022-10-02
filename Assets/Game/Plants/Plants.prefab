@@ -70,9 +70,9 @@ MonoBehaviour:
   income:
     grass: 2
     vine: 2
-    tree: 5
-    solarPanel: 25
-    florialWater: 25
+    tree: 12
+    solarPanel: 2
+    florialWater: 2
     diamond: 0
     none: 0
   universalRipeFx: {fileID: 0}

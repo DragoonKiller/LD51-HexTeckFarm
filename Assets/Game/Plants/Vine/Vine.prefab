@@ -48,7 +48,7 @@ MonoBehaviour:
   ripeGrow: 10
   block: {fileID: 0}
   type: 2
-  grow: 0
+  _grow: 0
   harvested: 0
   growSpeed:
     sunny: 0.5
@@ -57,6 +57,14 @@ MonoBehaviour:
     fertilizerRain: 1
     drought: 2
     flood: 0
+    none: 0
+  adaption:
+    sunny: -1
+    rain: -1
+    thunderStorm: -1
+    fertilizerRain: 1
+    drought: 1
+    flood: -1
     none: 0
   rd: {fileID: 1107508591517908183}
   levels:

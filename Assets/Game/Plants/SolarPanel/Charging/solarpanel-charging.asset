@@ -53,6 +53,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cd618d012701dda4185f21d6ae170ca9, type: 3}
   - {fileID: 21300000, guid: 1c1554c104ad08a4bbe334907d296e3a, type: 3}
   anchors: []
-  duration: 0
-  fps: 0
-  loop: 0
+  frameCount: 19
+  fps: 30
+  loop: 1

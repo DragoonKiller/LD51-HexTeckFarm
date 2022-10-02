@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935361552532499163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.487, z: 0}
+  m_LocalPosition: {x: 0, y: 0.487, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asset: {fileID: 11400000, guid: b093c942ba2166242b7b7d7d97a593b7, type: 2}
   currentTime: 0
+  speedMultiply: 1
   _mirror: 0
 --- !u!1 &2479816513369385057
 GameObject:
@@ -233,7 +234,23 @@ MonoBehaviour:
   ripeGrow: 9999
   block: {fileID: 0}
   type: 6
-  grow: 0
+  _grow: 0
   harvested: 0
+  growSpeed:
+    sunny: 0
+    rain: 0
+    thunderStorm: 0
+    fertilizerRain: 0
+    drought: 0
+    flood: 0
+    none: 0
+  adaption:
+    sunny: -1
+    rain: -1
+    thunderStorm: -1
+    fertilizerRain: -1
+    drought: -1
+    flood: -1
+    none: 0
   anim: {fileID: 3885045593293523198}
   rd: {fileID: 7829776031738399365}

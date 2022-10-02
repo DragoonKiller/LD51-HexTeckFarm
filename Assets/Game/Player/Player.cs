@@ -43,38 +43,45 @@ public class Player : Singleton<Player>
     {
         // if(timer != null) return;
         
-        bool success = false;
-        var pl = Plants.Get();
+        // bool success = false;
+        var pl = Plants.instance;
+        var ad = PlantAdaption.instance;
         
         if(Keyboard.current.qKey.wasPressedThisFrame)
         {
-            success = true;
+            // success = true;
             pl.TryPlant(PlantType.Grass);
+            ad.SetData(PlantType.Grass);
         }
         else if(Keyboard.current.wKey.wasPressedThisFrame)
         {
-            success = true;
+            // success = true;
             pl.TryPlant(PlantType.Vine);
+            ad.SetData(PlantType.Vine);
         }
         else if(Keyboard.current.eKey.wasPressedThisFrame)
         {
-            success = true;
+            // success = true;
             pl.TryPlant(PlantType.Tree);
+            ad.SetData(PlantType.Tree);
         }
         else if(Keyboard.current.aKey.wasPressedThisFrame)
         {
-            success = true;
+            // success = true;
             pl.TryPlant(PlantType.SolarPanel);
+            ad.SetData(PlantType.SolarPanel);
         }
         else if(Keyboard.current.sKey.wasPressedThisFrame)
         {
-            success = true;
+            // success = true;
             pl.TryPlant(PlantType.FlorialWater);
+            ad.SetData(PlantType.FlorialWater);
         }
         else if(Keyboard.current.dKey.wasPressedThisFrame)
         {
-            success = true;
+            // success = true;
             pl.TryPlant(PlantType.Diamond);
+            ad.SetData(PlantType.Diamond);
         }
         
         // if(success) timer = Timer.New(0.3f, () => timer = null);

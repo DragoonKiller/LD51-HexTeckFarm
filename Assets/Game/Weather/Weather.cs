@@ -5,6 +5,8 @@ using Prota.Unity;
 using Prota.Timer;
 using System;
 using Prota.Tween;
+using System.Linq;
+using Prota;
 
 [Serializable]
 public enum WeatherType
@@ -70,18 +72,40 @@ public class Weather : Singleton<Weather>
         seq.Add(WeatherType.Sunny);
         seq.Add(WeatherType.Rain);
         seq.Add(WeatherType.FertilizerRain);
-        for(int i = 4; i < 31; i++)  // 5min.
+        
+        var validCollection = new Dictionary<WeatherType, int>();
+        validCollection.Add(WeatherType.Sunny, 10);
+        validCollection.Add(WeatherType.Rain, 10);
+        validCollection.Add(WeatherType.FertilizerRain, 8);
+        validCollection.Add(WeatherType.ThunderStrom, 8);
+        validCollection.Add(WeatherType.Flood, 6);
+        validCollection.Add(WeatherType.Drought, 6);
+        
+        var last = WeatherType.None;
+        
+        for(int i = 4; i < 31; i++)  // 5min. 
         {
-            var n = UnityEngine.Random.Range(0, 60);
-            // n.ToString().Log();
+            var c = validCollection.Clone();
+            c.Remove(last);     // no repeated weather.
+            // no continuous flood or drought.
+            if(last == WeatherType.Flood) c.Remove(WeatherType.Drought);
+            if(last == WeatherType.Drought) c.Remove(WeatherType.Flood);
+            
+            var sum = c.Values.Sum();
+            var n = UnityEngine.Random.Range(0, sum);
             WeatherType w = WeatherType.None;
-            if(n < 10) w = WeatherType.Sunny;
-            else if(n < 20) w = WeatherType.Rain;
-            else if(n < 30) w = WeatherType.FertilizerRain;
-            else if(n < 40) w = WeatherType.ThunderStrom;
-            else if(n < 50) w = WeatherType.Flood;
-            else if(n < 60) w = WeatherType.Drought;
-            seq.Add(w);
+            foreach(var t in c)
+            {
+                if(n < t.Value)
+                {
+                    w = t.Key;
+                    break;
+                }
+                n -= t.Value;
+            }
+            
+            (w != WeatherType.None).Assert();
+            seq.Add(last = w);
         }
         seq.Add(WeatherType.Done);
     }

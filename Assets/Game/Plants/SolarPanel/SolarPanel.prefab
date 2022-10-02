@@ -134,7 +134,7 @@ MonoBehaviour:
   ripeGrow: 10
   block: {fileID: 0}
   type: 4
-  grow: 0
+  _grow: 0
   harvested: 0
   growSpeed:
     sunny: 1
@@ -143,6 +143,14 @@ MonoBehaviour:
     fertilizerRain: 0
     drought: 4
     flood: 0
+    none: 0
+  adaption:
+    sunny: 1
+    rain: -1
+    thunderStorm: -1
+    fertilizerRain: -1
+    drought: 1
+    flood: -1
     none: 0
   chargeComplete: {fileID: 4343889389146835837}
   chargeAnim: {fileID: 4343889389329808891}
@@ -329,4 +337,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asset: {fileID: 11400000, guid: 448c2e30fcc81a3488ab26c16ecc8f31, type: 2}
   currentTime: 0
+  speedMultiply: 1
   _mirror: 0
