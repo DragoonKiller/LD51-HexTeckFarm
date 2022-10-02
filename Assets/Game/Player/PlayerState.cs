@@ -8,13 +8,15 @@ using Prota;
 
 public class PlayerState : Singleton<PlayerState>
 {
+    public int initialBiomass = 2;
+    
     [SerializeField] int _biomass;
     public int biomass
     {
         get => _biomass;
         set
         {
-            value = value.Clamp(0, 9999);
+            value = value.Clamp(0, 999);
             var ori = _biomass;
             _biomass = value;
             onBiomassChange?.Invoke(ori, value);
@@ -48,11 +50,12 @@ public class PlayerState : Singleton<PlayerState>
     
     public void Reset()
     {
-        biomass = 0;
+        biomass = initialBiomass;
     }
     
     void Start()
     {
+        Reset();
         selectFx = Instantiate(selectFxTemplate, this.transform, false);
         selectFx.SetActive(false);
     }

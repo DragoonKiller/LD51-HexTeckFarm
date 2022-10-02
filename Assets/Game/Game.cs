@@ -39,10 +39,14 @@ public class Game : Singleton<Game>
     public void Reset()
     {
         Weather.instance.Reset();
-        Player.instance.Restart();
+        Player.instance.Reset();
         WeatherReport.instance.Reset();
     }
     
+    void Start()
+    {
+        Reset();
+    }
     
     void Update()
     {

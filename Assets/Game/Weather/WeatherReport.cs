@@ -23,7 +23,7 @@ public class WeatherReport : Singleton<WeatherReport>
     void Awake()
     {
         stayPos = tweenRoot.localPosition;
-        stayPos.ToString().Log();
+        // stayPos.ToString().Log();
     }
     
     void Start()
@@ -65,6 +65,7 @@ public class WeatherReport : Singleton<WeatherReport>
     
     void SetCurrentState()
     {
+        if(wt.cur == -1) return; // not yet started, but reset.
         var seq = wt.seq;
         for(int i = 0; i < 8; i++)
         {

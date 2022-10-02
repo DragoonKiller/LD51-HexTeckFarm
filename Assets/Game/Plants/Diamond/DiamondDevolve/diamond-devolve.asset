@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0d3194b57ad184cbb0189e4762e4b8, type: 3}
+  m_Name: diamond-devolve
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 637f3f50050348243ba02263dc274525, type: 3}
+  - {fileID: 21300000, guid: ba928caa520353447b1db90a12c04f4c, type: 3}
+  - {fileID: 21300000, guid: 665eae7efb2638e4e83b422da004696c, type: 3}
+  - {fileID: 21300000, guid: 3c70f44b49bf8f14281c2dc32361fb6b, type: 3}
+  - {fileID: 21300000, guid: b4f0d62ffaacc844f9880a9b9e35936c, type: 3}
+  - {fileID: 21300000, guid: 4ee8f91351d9cc041b0639ef779f933b, type: 3}
+  - {fileID: 21300000, guid: d33190afcd8edc548bd888ad99ee8134, type: 3}
+  - {fileID: 21300000, guid: 91821a807e3c489419db6eb54824a8cd, type: 3}
+  - {fileID: 21300000, guid: cd09b3481fd001240aab719205c8227e, type: 3}
+  frames:
+  - {fileID: 21300000, guid: 637f3f50050348243ba02263dc274525, type: 3}
+  - {fileID: 21300000, guid: 637f3f50050348243ba02263dc274525, type: 3}
+  - {fileID: 21300000, guid: ba928caa520353447b1db90a12c04f4c, type: 3}
+  - {fileID: 21300000, guid: ba928caa520353447b1db90a12c04f4c, type: 3}
+  - {fileID: 21300000, guid: 665eae7efb2638e4e83b422da004696c, type: 3}
+  - {fileID: 21300000, guid: 665eae7efb2638e4e83b422da004696c, type: 3}
+  - {fileID: 21300000, guid: 3c70f44b49bf8f14281c2dc32361fb6b, type: 3}
+  - {fileID: 21300000, guid: 3c70f44b49bf8f14281c2dc32361fb6b, type: 3}
+  - {fileID: 21300000, guid: b4f0d62ffaacc844f9880a9b9e35936c, type: 3}
+  - {fileID: 21300000, guid: b4f0d62ffaacc844f9880a9b9e35936c, type: 3}
+  - {fileID: 21300000, guid: 4ee8f91351d9cc041b0639ef779f933b, type: 3}
+  - {fileID: 21300000, guid: 4ee8f91351d9cc041b0639ef779f933b, type: 3}
+  - {fileID: 21300000, guid: d33190afcd8edc548bd888ad99ee8134, type: 3}
+  - {fileID: 21300000, guid: d33190afcd8edc548bd888ad99ee8134, type: 3}
+  - {fileID: 21300000, guid: 91821a807e3c489419db6eb54824a8cd, type: 3}
+  - {fileID: 21300000, guid: cd09b3481fd001240aab719205c8227e, type: 3}
+  anchors: []
+  duration: 16
+  fps: 60
+  loop: 0

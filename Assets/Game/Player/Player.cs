@@ -18,7 +18,7 @@ public class Player : Singleton<Player>
     
     // public Timer timer;
     
-    public void Restart()
+    public void Reset()
     {
         target.transform.position = 0.5f * (min + max);
         // timer?.Remove();

@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0d3194b57ad184cbb0189e4762e4b8, type: 3}
+  m_Name: solarpanel-charging
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 8a98b3b39acd2c14aa4b0988982dc830, type: 3}
+  - {fileID: 21300000, guid: 66c2655d45cd6944bac93476a9c0b02c, type: 3}
+  - {fileID: 21300000, guid: 202a2fc685bda7440baeb25e839d99f0, type: 3}
+  - {fileID: 21300000, guid: cecff1b8adedb8949add1981c4948043, type: 3}
+  - {fileID: 21300000, guid: d44593914fca3b0458646fda64e48ef9, type: 3}
+  - {fileID: 21300000, guid: 907eac80517356f46badd419743b5007, type: 3}
+  - {fileID: 21300000, guid: 764148c287e77f84a99f790f8b8477bc, type: 3}
+  - {fileID: 21300000, guid: 8fe6dd78c8611df49ae161d89c72a272, type: 3}
+  - {fileID: 21300000, guid: 24edf0cf3fead524ba3bfbb2e870cc41, type: 3}
+  - {fileID: 21300000, guid: aad8ec99c8ed29a46bf12769f95614d0, type: 3}
+  - {fileID: 21300000, guid: 3c6001d104c64164aa33fec3e5730bd2, type: 3}
+  - {fileID: 21300000, guid: 10d75054c3ea6f9418389a2dfff2b11c, type: 3}
+  - {fileID: 21300000, guid: 8893d9c107d02eb4498403e510d23597, type: 3}
+  - {fileID: 21300000, guid: d384b11dd847de84b85f381d2aeb41ed, type: 3}
+  - {fileID: 21300000, guid: b9c3edca5886cba4399a23ccdf3be45e, type: 3}
+  - {fileID: 21300000, guid: f652346d98d038f41a28c816b4986138, type: 3}
+  - {fileID: 21300000, guid: 4c6901128a44fa748b5a128a582dae76, type: 3}
+  - {fileID: 21300000, guid: cd618d012701dda4185f21d6ae170ca9, type: 3}
+  - {fileID: 21300000, guid: 1c1554c104ad08a4bbe334907d296e3a, type: 3}
+  frames:
+  - {fileID: 21300000, guid: 8a98b3b39acd2c14aa4b0988982dc830, type: 3}
+  - {fileID: 21300000, guid: 66c2655d45cd6944bac93476a9c0b02c, type: 3}
+  - {fileID: 21300000, guid: 202a2fc685bda7440baeb25e839d99f0, type: 3}
+  - {fileID: 21300000, guid: cecff1b8adedb8949add1981c4948043, type: 3}
+  - {fileID: 21300000, guid: d44593914fca3b0458646fda64e48ef9, type: 3}
+  - {fileID: 21300000, guid: 907eac80517356f46badd419743b5007, type: 3}
+  - {fileID: 21300000, guid: 764148c287e77f84a99f790f8b8477bc, type: 3}
+  - {fileID: 21300000, guid: 8fe6dd78c8611df49ae161d89c72a272, type: 3}
+  - {fileID: 21300000, guid: 24edf0cf3fead524ba3bfbb2e870cc41, type: 3}
+  - {fileID: 21300000, guid: aad8ec99c8ed29a46bf12769f95614d0, type: 3}
+  - {fileID: 21300000, guid: 3c6001d104c64164aa33fec3e5730bd2, type: 3}
+  - {fileID: 21300000, guid: 10d75054c3ea6f9418389a2dfff2b11c, type: 3}
+  - {fileID: 21300000, guid: 8893d9c107d02eb4498403e510d23597, type: 3}
+  - {fileID: 21300000, guid: d384b11dd847de84b85f381d2aeb41ed, type: 3}
+  - {fileID: 21300000, guid: b9c3edca5886cba4399a23ccdf3be45e, type: 3}
+  - {fileID: 21300000, guid: f652346d98d038f41a28c816b4986138, type: 3}
+  - {fileID: 21300000, guid: 4c6901128a44fa748b5a128a582dae76, type: 3}
+  - {fileID: 21300000, guid: cd618d012701dda4185f21d6ae170ca9, type: 3}
+  - {fileID: 21300000, guid: 1c1554c104ad08a4bbe334907d296e3a, type: 3}
+  anchors: []
+  duration: 0
+  fps: 0
+  loop: 0

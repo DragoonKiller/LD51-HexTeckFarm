@@ -82,6 +82,9 @@ public class Plants : Singleton<Plants>
             _ => none,
         }).GetComponent<Plant>();
         
+        var consume = GetConsume(type);
+        p.biomass -= consume;
+        
         p.selection.Plant(plant);
         return true;
     }

@@ -1,12 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 using Prota;
 using Prota.Unity;
 
 using Prota.Timer;
 using Prota.Tween;
+
+
+[Serializable]
+public class GrowSpeed
+{
+    public float sunny;
+    public float rain;
+    public float thunderStorm;
+    public float fertilizerRain;
+    public float drought;
+    public float flood;
+    public float none;
+}
+
 
 public abstract class Plant : MonoBehaviour
 {
@@ -28,14 +43,13 @@ public abstract class Plant : MonoBehaviour
     
     protected Weather wt => Weather.instance;
     
-    public virtual bool CanGrow()
-    {
-        return true;
-    }
+    public GrowSpeed growSpeed = new GrowSpeed();
     
-    public virtual void GrowStep()
+    public virtual bool TryGrowStep()
     {
-        grow += Time.deltaTime;
+        var speed = GetGrowSpeed();
+        grow += speed * Time.deltaTime;
+        return speed > 0;
     }
     
     public abstract void UpdateDisplay(float from, float to);
@@ -54,20 +68,35 @@ public abstract class Plant : MonoBehaviour
         PlayerState.instance.biomass += Plants.instance.GetIncome(this.type);
     }
     
+    protected virtual void OnStart() { }
+    
     void Start()
     {
         harvested = false;
         UpdateDisplay(0, 0);
+        OnStart();
     }
     
     void Update()
     {
         if(harvested) return;
         var from = grow;
-        if(CanGrow()) GrowStep();
+        TryGrowStep();
         var to = grow;
         UpdateDisplay(from, to);
         if(readyToHarvest && PlayerState.instance.selection == this.block) Harvest();
     }
     
+    public float GetGrowSpeed(WeatherType? weather = null)
+    {
+        if(weather == null) weather = wt.currentWeather;
+        return weather.Value switch {
+            WeatherType.Sunny => growSpeed.sunny,
+            WeatherType.Drought => growSpeed.drought,
+            WeatherType.FertilizerRain => growSpeed.fertilizerRain,
+            WeatherType.Flood => growSpeed.flood,
+            WeatherType.ThunderStrom => growSpeed.thunderStorm,
+            _ => 0,
+        };
+    }
 }
