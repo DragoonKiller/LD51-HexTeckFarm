@@ -33,7 +33,7 @@ public class PlantIcon : MonoBehaviour
     {
         var p = PlayerState.instance;
         var enough = p.biomass >= consume;
-        mask.gameObject.SetActive(p.selection == null || !enough);
+        mask.gameObject.SetActive(p.selection == null || !enough || Weather.instance.currentWeather == WeatherType.Flood);
         
         consumeText.color = enough ? enoughColor : notEnoughColor;
     }

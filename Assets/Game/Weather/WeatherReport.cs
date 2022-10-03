@@ -19,6 +19,7 @@ public class WeatherReport : Singleton<WeatherReport>
     
     Weather wt => Weather.Get();
     
+    public Image currentFinishedMark;
     
     void Awake()
     {
@@ -49,6 +50,8 @@ public class WeatherReport : Singleton<WeatherReport>
             SetCurrentState();
             PlayAnim();
         }
+        
+        currentFinishedMark.gameObject.SetActive(Weather.instance.currentFinished);
     }
     
     void PlayAnim()

@@ -67,7 +67,13 @@ public class Weather : Singleton<Weather>
     
     public float lastChangeTime = 0;
     
+    public bool currentFinished = false;
+    
     public bool started = false;
+    
+    public event Action onFinishedRound;
+    
+    public event Action onFailRound;
     
     public GameObject scene;
     
@@ -75,14 +81,29 @@ public class Weather : Singleton<Weather>
     {
         started = false;
         cur = -1;
+        currentFinished = false;
         seq.Clear();
         GenerateSeq();
         timer?.Remove();
         this.light.color = GetLightColor(WeatherType.Sunny);
     }
     
-    void Start() => Reset();
-
+    void Start()
+    {
+        PlayerState.instance.onBiomassChange += OnBiomassChange;
+        Reset();
+    }
+    
+    void OnDestroy()
+    {
+        PlayerState.instance.onBiomassChange -= OnBiomassChange;
+    }
+    
+    void OnBiomassChange(int from, int to)
+    {
+        if(to - from > 0) currentFinished = true;
+    }
+    
     private void GenerateSeq()
     {
         seq.Add(WeatherType.Sunny);
@@ -92,9 +113,9 @@ public class Weather : Singleton<Weather>
         
         var validCollection = new Dictionary<WeatherType, int>();
         validCollection.Add(WeatherType.Sunny, 20);
-        validCollection.Add(WeatherType.Rain, 20);
-        validCollection.Add(WeatherType.FertilizerRain, 15);
-        validCollection.Add(WeatherType.ThunderStrom, 15);
+        validCollection.Add(WeatherType.Rain, 10);
+        validCollection.Add(WeatherType.FertilizerRain, 10);
+        validCollection.Add(WeatherType.ThunderStrom, 10);
         validCollection.Add(WeatherType.Flood, 5);
         validCollection.Add(WeatherType.Drought, 5);
         
@@ -126,6 +147,7 @@ public class Weather : Singleton<Weather>
             
             validCollection[WeatherType.Flood] += 1;
             validCollection[WeatherType.Drought] += 1;
+            validCollection[WeatherType.ThunderStrom] += 1;
         }
         seq.Add(WeatherType.Done);
     }
@@ -145,8 +167,14 @@ public class Weather : Singleton<Weather>
     
     void NextWeather()
     {
+        if(cur != -1)
+        {
+            if(!currentFinished) Boss.instance.Fail();
+        }
+        
         cur += 1;
         lastChangeTime = Time.time;
+        currentFinished = false;
         
         var sourceColor = this.light.color;
         ProtaTweenManager.instance.New(TweenType.Transparency, this.light, (h, t) => {
@@ -156,6 +184,8 @@ public class Weather : Singleton<Weather>
         
         var g = GetWeatherPrefab(this.currentWeather);
         if(g != null) GameObject.Instantiate(g);
+        
+        if(currentWeather == WeatherType.Done) Game.instance.completeGame = true;
     }
     
     public Color GetLightColor(WeatherType type)

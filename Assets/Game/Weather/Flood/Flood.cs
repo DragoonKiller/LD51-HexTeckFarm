@@ -41,12 +41,18 @@ public class Flood : BaseWeatherBehaviour
             rd.TweenColorA(1, 1).SetEase(TweenEase.circOut);
             Timer.New(3f, () => rd.TweenColorA(0, 1).SetEase(TweenEase.circIn));
             
-            Timer.New(4f, () => GameObject.Destroy(g));
+            Timer.New(4f, () => g.Destroy());
         });
         
         Timer.New(8f, false, () => {
             timer.Remove();
         });
         
+    }
+    
+    void OnDestroy()
+    {
+        timer.Remove();
+        timer = null;
     }
 }

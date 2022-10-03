@@ -29,11 +29,17 @@ public class FertilizerRain : BaseWeatherBehaviour
             rd.color = rd.color.WithA(0);
             g.transform.TweenMoveY(-0.5f, 2);
             rd.TweenColorA(1, 2);
-            Timer.New(2f, () => GameObject.Destroy(g));
+            Timer.New(2f, () => g.Destroy());
         });
         
         Timer.New(10f, false, () => {
             timer.Remove();
         });
+    }
+    
+    void OnDestroy()
+    {
+        timer.Remove();
+        timer = null;
     }
 }

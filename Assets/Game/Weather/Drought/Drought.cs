@@ -29,12 +29,18 @@ public class Drought : BaseWeatherBehaviour
             g.transform.position = g.transform.position.WithY(-0.5f);
             g.transform.TweenMoveY(1, 2);
             g.GetComponent<SpriteRenderer>().TweenColorA(0, 2);
-            Timer.New(2f, () => GameObject.Destroy(g));
+            Timer.New(2f, () => g.Destroy());
         });
         
         Timer.New(10f, false, () => {
             timer.Remove();
         });
         
+    }
+    
+    void OnDestroy()
+    {
+        timer.Remove();
+        timer = null;
     }
 }

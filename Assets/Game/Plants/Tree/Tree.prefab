@@ -52,20 +52,21 @@ MonoBehaviour:
   harvested: 0
   growSpeed:
     sunny: 1
-    rain: 0.5
-    thunderStorm: 0
-    fertilizerRain: 2
+    rain: 1
+    thunderStorm: 1
+    fertilizerRain: 1
     drought: 0.5
     flood: -2
     none: 0
   adaption:
     sunny: 1
-    rain: -1
+    rain: 1
     thunderStorm: 0
     fertilizerRain: 1
     drought: -1
     flood: 0
     none: 0
+  audio: {fileID: 0}
   rd: {fileID: 6888461581796055194}
   levels:
   - {fileID: 21300000, guid: 79a6cfe43e93bf149a13df40d6fd530d, type: 3}

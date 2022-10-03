@@ -85,6 +85,18 @@ public class Player : Singleton<Player>
     
     void Update()
     {
+        if(Keyboard.current.equalsKey.wasPressedThisFrame
+        || Keyboard.current.numpadPlusKey.wasPressedThisFrame)
+            AudioListener.volume *= 2f;
+            
+        if(Keyboard.current.minusKey.wasPressedThisFrame
+        || Keyboard.current.numpadMinusKey.wasPressedThisFrame)
+            AudioListener.volume *= 0.5f;
+            
+        if(Keyboard.current.digit0Key.wasPressedThisFrame
+        || Keyboard.current.numpad0Key.wasPressedThisFrame)
+            AudioListener.volume = 0.5f;
+        
         if(Weather.instance.currentWeather == WeatherType.Done) return;
         if(Weather.instance.currentWeather == WeatherType.Flood) return;
         

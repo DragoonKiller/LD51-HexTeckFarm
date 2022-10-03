@@ -56,7 +56,11 @@ public class Plants : Singleton<Plants>
     
     public PlantsIncomeRecord income = new PlantsIncomeRecord();
     
-    public GameObject universalRipeFx;
+    public AudioClip plantAudio;
+    
+    public AudioClip destroyAudio;
+    
+    public AudioClip harvestAudio;
     
     public bool MatchConsume(PlantType type)
     {

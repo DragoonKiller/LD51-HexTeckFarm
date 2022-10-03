@@ -12,6 +12,13 @@ public abstract class BaseWeatherBehaviour : MonoBehaviour
 {
     protected virtual void Start()
     {
+        // bad result, don't use.
+        // var p = this.GetComponentInChildren<AudioSource>();
+        // if(p != null)
+        // {
+        //     p.Play();
+        // }
+        
         Timer.New(15f, false, () => {
             GameObject.Destroy(this.gameObject);
         });

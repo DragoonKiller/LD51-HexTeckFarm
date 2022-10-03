@@ -141,7 +141,7 @@ MonoBehaviour:
     rain: 0
     thunderStorm: 0.5
     fertilizerRain: 0
-    drought: 4
+    drought: 2
     flood: 0
     none: 0
   adaption:
@@ -152,6 +152,7 @@ MonoBehaviour:
     drought: 1
     flood: -1
     none: 0
+  audio: {fileID: 0}
   chargeComplete: {fileID: 4343889389146835837}
   chargeAnim: {fileID: 4343889389329808891}
 --- !u!1 &4343889389146835836

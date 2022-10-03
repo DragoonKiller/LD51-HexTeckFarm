@@ -47,5 +47,7 @@ public class SolarPanel : Plant
         // solar panels cannot be retrieved.
         grow = 0;
         PlayerState.instance.biomass += 1;
+        
+        audio.PlayOneShot(Plants.instance.harvestAudio);
     }
 }

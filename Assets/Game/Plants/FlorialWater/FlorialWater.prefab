@@ -90,7 +90,7 @@ MonoBehaviour:
     thunderStorm: 0.5
     fertilizerRain: 0.5
     drought: 0
-    flood: 10
+    flood: 2
     none: 0
   adaption:
     sunny: -1
@@ -100,6 +100,7 @@ MonoBehaviour:
     drought: -1
     flood: 1
     none: 0
+  audio: {fileID: 0}
   content: {fileID: 8018169776249713844}
 --- !u!1 &8018169774919100206
 GameObject:

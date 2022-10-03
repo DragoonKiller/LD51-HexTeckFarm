@@ -75,4 +75,7 @@ MonoBehaviour:
     florialWater: 2
     diamond: 0
     none: 0
+  plantAudio: {fileID: 8300000, guid: 9e9092780d896dc41a69fbce8b327ef8, type: 3}
+  destroyAudio: {fileID: 8300000, guid: ba8e9664d9dbe7f49a20236ca20f6415, type: 3}
+  harvestAudio: {fileID: 8300000, guid: 338c54e5dbcb6b04cb7492b2122fd457, type: 3}
   universalRipeFx: {fileID: 0}

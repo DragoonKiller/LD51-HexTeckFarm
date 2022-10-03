@@ -33,11 +33,22 @@ public class ThunderStorm : BaseWeatherBehaviour
             rd.color = rd.color.WithA(0);
             g.transform.TweenMoveY(-0.5f, 0.7f);
             rd.TweenColorA(1, 0.5f);
-            Timer.New(2f, () => GameObject.Destroy(g));
+            Timer.New(2f, () => g.Destroy());
         });
         
         thunderTimer = Timer.New(0.5f, true, () => {
             var coord = (Vector2Int.zero, Ground.instance.size).Random();
+            
+            // 50% chance to detroy a tree.
+            foreach(var bk in Ground.instance.blocks) if(bk?.plant?.type == PlantType.Tree)
+            {
+                if((0, 2).Random() == 0)
+                {
+                    coord = bk.coord;
+                    break;
+                }
+            }
+            
             var pos = Block.Pos(coord);
             var g = GameObject.Instantiate(thunderTemplate, pos, Quaternion.identity, this.transform);
             g.SetActive(true);
@@ -46,7 +57,7 @@ public class ThunderStorm : BaseWeatherBehaviour
             rd.transform.localScale = rd.transform.localScale.WithX((0, 2).Random() * 2 - 1);
             rd.color = rd.color.WithA(1);
             rd.TweenColorA(0, 1f);
-            Timer.New(2f, () => GameObject.Destroy(g));
+            Timer.New(2f, () => g.Destroy());
             
             var b = Ground.instance.blocks[coord.x, coord.y];
             if(b != null && b.plant != null)
@@ -65,5 +76,13 @@ public class ThunderStorm : BaseWeatherBehaviour
             dropTimer.Remove();
             thunderTimer.Remove();
         });
+    }
+    
+    void OnDestroy()
+    {
+        dropTimer.Remove();
+        dropTimer = null;
+        thunderTimer.Remove();
+        thunderTimer = null;
     }
 }

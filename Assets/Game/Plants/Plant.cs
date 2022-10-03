@@ -62,6 +62,8 @@ public abstract class Plant : MonoBehaviour
     
     public PlantAdaptionData adaption = new PlantAdaptionData();
     
+    public new AudioSource audio;
+    
     public virtual bool TryGrowStep()
     {
         var speed = GetGrowSpeed();
@@ -83,16 +85,23 @@ public abstract class Plant : MonoBehaviour
         Timer.New(1, () => GameObject.Destroy(this.gameObject));
         
         PlayerState.instance.biomass += Plants.instance.GetIncome(this.type);
+        
+        audio.PlayOneShot(Plants.instance.harvestAudio);
     }
     
     protected virtual void OnStart() { }
+    
     
     void Start()
     {
         harvested = false;
         UpdateDisplay(0, 0);
+        audio = this.gameObject.AddComponent<AudioSource>();
+        audio.playOnAwake = false;
+        audio.PlayOneShot(Plants.instance.plantAudio);
         OnStart();
     }
+    
     
     void Update()
     {
@@ -109,6 +118,7 @@ public abstract class Plant : MonoBehaviour
         if(weather == null) weather = wt.currentWeather;
         return weather.Value switch {
             WeatherType.Sunny => growSpeed.sunny,
+            WeatherType.Rain => growSpeed.rain,
             WeatherType.Drought => growSpeed.drought,
             WeatherType.FertilizerRain => growSpeed.fertilizerRain,
             WeatherType.Flood => growSpeed.flood,

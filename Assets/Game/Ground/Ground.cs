@@ -37,6 +37,14 @@ public class Ground : Singleton<Ground>
         }
     }
     
-    public void Restart() => Start();
+    public void Reset()
+    {
+        foreach(var b in blocks) if(b != null)
+        {
+            if(b.plant != null) b.plant.gameObject.Destroy();
+            b.gameObject.Destroy();
+        }
+        Start();
+    }
     
 }

@@ -51,13 +51,15 @@ public class PlayerState : Singleton<PlayerState>
     public void Reset()
     {
         biomass = initialBiomass;
+        if(selectFx != null) selectFx.Destroy();
+        selectFx = null;
+        selectFx = Instantiate(selectFxTemplate, this.transform, false);
+        selectFx.SetActive(false);
     }
     
     void Start()
     {
         Reset();
-        selectFx = Instantiate(selectFxTemplate, this.transform, false);
-        selectFx.SetActive(false);
     }
     
     void Update()

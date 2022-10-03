@@ -18,5 +18,7 @@ public class FlorialWater : Plant
         // florial water don't retrieve.
         grow = 0;
         PlayerState.instance.biomass += 1;
+        
+        audio.PlayOneShot(Plants.instance.harvestAudio);
     }
 }
