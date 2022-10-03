@@ -85,6 +85,9 @@ public class Player : Singleton<Player>
     
     void Update()
     {
+        if(Weather.instance.currentWeather == WeatherType.Done) return;
+        if(Weather.instance.currentWeather == WeatherType.Flood) return;
+        
         var pl = Plants.instance;
         var ad = PlantAdaption.instance;
         

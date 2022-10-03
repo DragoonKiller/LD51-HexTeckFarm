@@ -67,6 +67,8 @@ public class Plants : Singleton<Plants>
     
     public bool TryPlant(PlantType type)
     {
+        if(Weather.instance.currentWeather == WeatherType.Flood) return false;  // plant in flood not permitted.
+        
         var p = PlayerState.instance;
         if(p.selection == null) return false;
         if(p.selection.plant != null) return false;

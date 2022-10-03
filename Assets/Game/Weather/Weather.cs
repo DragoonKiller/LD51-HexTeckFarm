@@ -51,7 +51,7 @@ public class WeatherPrefab
 
 public class Weather : Singleton<Weather>
 {
-    public WeatherType currentWeather => seq.Count < 0 || cur >= seq.Count ? WeatherType.None : seq[cur];
+    public WeatherType currentWeather => cur < 0 || cur >= seq.Count ? WeatherType.None : seq[cur];
     
     public List<WeatherType> seq = new List<WeatherType>();
     
@@ -85,7 +85,7 @@ public class Weather : Singleton<Weather>
 
     private void GenerateSeq()
     {
-        seq.Add(WeatherType.Flood);
+        seq.Add(WeatherType.Sunny);
         seq.Add(WeatherType.Sunny);
         seq.Add(WeatherType.Rain);
         seq.Add(WeatherType.FertilizerRain);

@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc50f90362c297446b615effac7d43d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ripeGrow: 10
+  ripeGrow: 20
   block: {fileID: 0}
   type: 4
   _grow: 0

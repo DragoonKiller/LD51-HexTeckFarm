@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c286c42c92fcb443a25eca8ade08075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ripeGrow: 10
+  ripeGrow: 20
   block: {fileID: 0}
   type: 3
   _grow: 0

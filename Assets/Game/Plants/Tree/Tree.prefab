@@ -56,7 +56,7 @@ MonoBehaviour:
     thunderStorm: 0
     fertilizerRain: 2
     drought: 0.5
-    flood: -1
+    flood: -2
     none: 0
   adaption:
     sunny: 1

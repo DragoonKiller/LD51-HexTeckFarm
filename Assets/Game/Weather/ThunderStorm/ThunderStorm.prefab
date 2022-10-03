@@ -130,4 +130,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropTemplate: {fileID: 3315275695552236367}
-  thunderTemplate: {fileID: 0}
+  thunderTemplate: {fileID: 7510707249062602740, guid: f8faac851ca8edb47bb000d14cbb43e5, type: 3}

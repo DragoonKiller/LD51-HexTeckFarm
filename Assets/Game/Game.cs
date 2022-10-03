@@ -9,6 +9,8 @@ public class Game : Singleton<Game>
 {
     public GameObject menuObj;
     
+    public GameObject menuMask;
+    
     int _needPause;
     public int needPause
     {
@@ -20,11 +22,13 @@ public class Game : Singleton<Game>
             {
                 Time.timeScale = 1;
                 menuObj.SetActive(false);
+                menuMask.SetActive(false);
             }
             else
             {
                 Time.timeScale = 0;
                 menuObj.SetActive(true);
+                menuMask.SetActive(true);
             }
         }
     }

@@ -37,7 +37,28 @@ public class ThunderStorm : BaseWeatherBehaviour
         });
         
         thunderTimer = Timer.New(0.5f, true, () => {
+            var coord = (Vector2Int.zero, Ground.instance.size).Random();
+            var pos = Block.Pos(coord);
+            var g = GameObject.Instantiate(thunderTemplate, pos, Quaternion.identity, this.transform);
+            g.SetActive(true);
+            g.transform.position = pos;
+            var rd = g.GetComponentInChildren<SpriteRenderer>();
+            rd.transform.localScale = rd.transform.localScale.WithX((0, 2).Random() * 2 - 1);
+            rd.color = rd.color.WithA(1);
+            rd.TweenColorA(0, 1f);
+            Timer.New(2f, () => GameObject.Destroy(g));
             
+            var b = Ground.instance.blocks[coord.x, coord.y];
+            if(b != null && b.plant != null)
+            {
+                if(b.plant.type != PlantType.Diamond
+                && b.plant.type != PlantType.FlorialWater
+                && b.plant.type != PlantType.SolarPanel)
+                {
+                    Destroy(b.plant.gameObject);        // remove it.
+                    b.ClearPlant();
+                }
+            }
         });
         
         Timer.New(10f, false, () => {

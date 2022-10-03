@@ -51,12 +51,12 @@ MonoBehaviour:
   _grow: 0
   harvested: 0
   growSpeed:
-    sunny: 0.5
-    rain: 0.5
+    sunny: -0.5
+    rain: -0.5
     thunderStorm: 0
     fertilizerRain: 1
     drought: 2
-    flood: 0
+    flood: -2
     none: 0
   adaption:
     sunny: -1
@@ -64,7 +64,7 @@ MonoBehaviour:
     thunderStorm: -1
     fertilizerRain: 1
     drought: 1
-    flood: -1
+    flood: 0
     none: 0
   rd: {fileID: 1107508591517908183}
   levels:
