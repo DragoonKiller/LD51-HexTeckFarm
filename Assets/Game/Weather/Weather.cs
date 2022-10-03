@@ -121,13 +121,13 @@ public class Weather : Singleton<Weather>
         
         var last = WeatherType.None;
         
-        for(int i = 5; i < 36; i++)  // 6 round per minute. 6min in total. 
+        for(int i = 5; i < 30; i++)  // 6 round per minute. 5min in total. 
         {
             var c = validCollection.Clone();
             c.Remove(last);     // no repeated weather.
             // no continuous flood or drought.
-            if(last == WeatherType.Flood) c.Remove(WeatherType.Drought);
-            if(last == WeatherType.Drought) c.Remove(WeatherType.Flood);
+            // if(last == WeatherType.Flood) c.Remove(WeatherType.Drought);
+            // if(last == WeatherType.Drought) c.Remove(WeatherType.Flood);
             
             var sum = c.Values.Sum();
             var n = UnityEngine.Random.Range(0, sum);

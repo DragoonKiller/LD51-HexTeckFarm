@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24423b7840b768243ad9d5402c07b228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ripeGrow: 10
+  ripeGrow: 20
   block: {fileID: 0}
   type: 5
   _grow: 0
@@ -54,9 +54,9 @@ MonoBehaviour:
     sunny: 1
     rain: 1
     thunderStorm: 1
-    fertilizerRain: 1
+    fertilizerRain: 2
     drought: 0.5
-    flood: -2
+    flood: 0
     none: 0
   adaption:
     sunny: 1
@@ -64,7 +64,7 @@ MonoBehaviour:
     thunderStorm: 0
     fertilizerRain: 1
     drought: -1
-    flood: 0
+    flood: -1
     none: 0
   audio: {fileID: 0}
   rd: {fileID: 6888461581796055194}

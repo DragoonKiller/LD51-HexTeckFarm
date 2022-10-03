@@ -26,6 +26,10 @@ public class Game : Singleton<Game>
     
     public void Reset()
     {
+        completeGame = false;
+        activePause = false;
+        Time.timeScale = 1;
+        Activate(0);
         PlayerState.instance.Reset();
         Player.instance.Reset();
         Weather.instance.Reset();
@@ -82,15 +86,15 @@ public class Game : Singleton<Game>
             Reset();
             return;
         }
-        
-        void Activate(int type)
-        {
-            menuMask.SetActive(type != 0);
-            menuObj.SetActive(type == 1);
-            win.SetActive(type == 2);
-            fail.SetActive(type == 3);
-        }
-        
     }
+        
+    void Activate(int type)
+    {
+        menuMask.SetActive(type != 0);
+        menuObj.SetActive(type == 1);
+        win.SetActive(type == 2);
+        fail.SetActive(type == 3);
+    }
+        
     
 }

@@ -45,27 +45,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7b89950606662438a89eede27c819e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ripeGrow: 15
+  ripeGrow: 8
   block: {fileID: 0}
   type: 2
   _grow: 0
   harvested: 0
   growSpeed:
-    sunny: -0.5
-    rain: -0.5
-    thunderStorm: 0
+    sunny: 0.5
+    rain: 0.5
+    thunderStorm: 0.5
     fertilizerRain: 1
-    drought: 2
-    flood: -2
+    drought: -3
+    flood: 0.5
     none: 0
   adaption:
     sunny: -1
-    rain: -1
+    rain: 1
     thunderStorm: -1
     fertilizerRain: 1
-    drought: 1
-    flood: 0
+    drought: 0
+    flood: -1
     none: 0
+  audio: {fileID: 0}
   rd: {fileID: 1107508591517908183}
   levels:
   - {fileID: 21300000, guid: 1adb00565da8ead42ba2ca0344c866f7, type: 3}

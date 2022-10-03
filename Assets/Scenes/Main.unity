@@ -2893,7 +2893,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "You lose anotther\n      10 sec!\n            How dare you!"
+  m_Text: "You lose another\n      10 sec!\n            How dare you!"
 --- !u!222 &1731931287
 CanvasRenderer:
   m_ObjectHideFlags: 0
