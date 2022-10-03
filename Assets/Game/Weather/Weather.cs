@@ -91,16 +91,16 @@ public class Weather : Singleton<Weather>
         seq.Add(WeatherType.FertilizerRain);
         
         var validCollection = new Dictionary<WeatherType, int>();
-        validCollection.Add(WeatherType.Sunny, 10);
-        validCollection.Add(WeatherType.Rain, 10);
-        validCollection.Add(WeatherType.FertilizerRain, 8);
-        validCollection.Add(WeatherType.ThunderStrom, 8);
-        validCollection.Add(WeatherType.Flood, 6);
-        validCollection.Add(WeatherType.Drought, 6);
+        validCollection.Add(WeatherType.Sunny, 20);
+        validCollection.Add(WeatherType.Rain, 20);
+        validCollection.Add(WeatherType.FertilizerRain, 15);
+        validCollection.Add(WeatherType.ThunderStrom, 15);
+        validCollection.Add(WeatherType.Flood, 5);
+        validCollection.Add(WeatherType.Drought, 5);
         
         var last = WeatherType.None;
         
-        for(int i = 4; i < 31; i++)  // 5min. 
+        for(int i = 5; i < 36; i++)  // 6 round per minute. 6min in total. 
         {
             var c = validCollection.Clone();
             c.Remove(last);     // no repeated weather.
@@ -123,6 +123,9 @@ public class Weather : Singleton<Weather>
             
             (w != WeatherType.None).Assert();
             seq.Add(last = w);
+            
+            validCollection[WeatherType.Flood] += 1;
+            validCollection[WeatherType.Drought] += 1;
         }
         seq.Add(WeatherType.Done);
     }

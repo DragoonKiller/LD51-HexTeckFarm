@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 728077723}
   - component: {fileID: 728077724}
+  - component: {fileID: 1851979259}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -107,8 +108,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728077722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1536762922}
@@ -155,7 +156,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cd09b3481fd001240aab719205c8227e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a562781bf27708244b082525eb9d8d96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -166,6 +167,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1851979259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728077722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50c07a1e88ff6248a0272562a1c325a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asset: {fileID: 11400000, guid: 2c1d5550bb6e9bb4594c0fc0ab0918ab, type: 2}
+  currentTime: 0
+  speedMultiply: 1
+  _mirror: 0
 --- !u!1 &1053858736
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +315,7 @@ BoxCollider:
   m_GameObject: {fileID: 1551152398}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 0.1}
   m_Center: {x: 0, y: 1, z: 0}
@@ -424,6 +441,14 @@ MonoBehaviour:
   min: {x: 0, y: 0, z: 0}
   max: {x: 20, y: 0, z: 20}
   velocity: 6
+  anim: {fileID: 1851979259}
+  run: {fileID: 11400000, guid: 07fef41df2cf6284a99ff4ba0e3122f1, type: 2}
+  runUp: {fileID: 11400000, guid: 5f74c326092e4644cb8c0907804c7756, type: 2}
+  runDown: {fileID: 11400000, guid: c373ecdcd7bd60446bb8a25592f8addc, type: 2}
+  idle: {fileID: 11400000, guid: 2b63203ffadb744429f45754ad5a2218, type: 2}
+  idleUp: {fileID: 11400000, guid: 19b35c7d05831ce44ba16fd901cfb290, type: 2}
+  idleDown: {fileID: 11400000, guid: 2c1d5550bb6e9bb4594c0fc0ab0918ab, type: 2}
+  lastDir: {x: 0, y: 0, z: 0}
 --- !u!114 &3598381182148610586
 MonoBehaviour:
   m_ObjectHideFlags: 0

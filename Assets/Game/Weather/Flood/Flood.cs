@@ -26,6 +26,7 @@ public class Flood : BaseWeatherBehaviour
         
         timer = Timer.New(0.1f, true, () => {
             var pos = (Player.instance.min, Player.instance.max).Random();
+            pos += Vector3.one * 0.05f;
             pos.z = (pos.z * 4).RoundToInt() / 4f;
             var g = GameObject.Instantiate(fxTemplate, pos, Quaternion.identity, this.transform);
             g.SetActive(true);

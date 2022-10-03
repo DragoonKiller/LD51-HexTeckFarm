@@ -6,6 +6,7 @@ using Prota;
 using Prota.Timer;
 using UnityEngine.InputSystem;
 using System;
+using Prota.Animation;
 
 public class Player : Singleton<Player>
 {
@@ -16,14 +17,23 @@ public class Player : Singleton<Player>
     
     public float velocity = 1;
     
-    // public Timer timer;
+    [SerializeField] SimpleAnimation anim;
+    
+    public SimpleAnimationAsset run;
+    public SimpleAnimationAsset runUp;
+    public SimpleAnimationAsset runDown;
+    public SimpleAnimationAsset idle;
+    public SimpleAnimationAsset idleUp;
+    public SimpleAnimationAsset idleDown;
+    
+    [SerializeField] Vector3 lastDir = Vector3.zero;
     
     public void Reset()
     {
         target.transform.position = 0.5f * (min + max);
-        // timer?.Remove();
     }
-
+    
+    
     void FixedUpdate()
     {
         var targetDir = Vector3.zero;
@@ -33,58 +43,81 @@ public class Player : Singleton<Player>
         if(Keyboard.current.downArrowKey.isPressed) targetDir += Vector3.back;
         targetDir = targetDir.normalized;
         
+        PlayAnim(targetDir);
+        
         var move = Time.fixedDeltaTime * velocity * targetDir;
         var rd = target.GetComponent<Rigidbody>();
         var targetPos = (rd.position + move).Clamp(min, max);
         rd.MovePosition(targetPos);
     }
     
+    void PlayAnim(Vector3 targetDir)
+    {
+        
+        void Play(SimpleAnimationAsset asset, bool mirror)
+        {
+            anim.Play(asset);
+            anim.mirror = mirror;
+        }
+        
+        if(targetDir == Vector3.zero)
+        {
+            if(lastDir.x != 0) Play(idle, lastDir.x < 0);
+            else
+            {
+                if(lastDir.z > 0) Play(idleUp, false);
+                else Play(idleDown, false);
+            }
+        }
+        else
+        {
+            lastDir = targetDir;
+            
+            if(targetDir.x != 0) Play(run, lastDir.x > 0);
+            else
+            {
+                if(targetDir.z > 0) Play(runUp, false);
+                else Play(runDown, false);
+            }
+        }
+        
+    }
+    
     void Update()
     {
-        // if(timer != null) return;
-        
-        // bool success = false;
         var pl = Plants.instance;
         var ad = PlantAdaption.instance;
         
         if(Keyboard.current.qKey.wasPressedThisFrame)
         {
-            // success = true;
             pl.TryPlant(PlantType.Grass);
             ad.SetData(PlantType.Grass);
         }
         else if(Keyboard.current.wKey.wasPressedThisFrame)
         {
-            // success = true;
             pl.TryPlant(PlantType.Vine);
             ad.SetData(PlantType.Vine);
         }
         else if(Keyboard.current.eKey.wasPressedThisFrame)
         {
-            // success = true;
             pl.TryPlant(PlantType.Tree);
             ad.SetData(PlantType.Tree);
         }
         else if(Keyboard.current.aKey.wasPressedThisFrame)
         {
-            // success = true;
             pl.TryPlant(PlantType.SolarPanel);
             ad.SetData(PlantType.SolarPanel);
         }
         else if(Keyboard.current.sKey.wasPressedThisFrame)
         {
-            // success = true;
             pl.TryPlant(PlantType.FlorialWater);
             ad.SetData(PlantType.FlorialWater);
         }
         else if(Keyboard.current.dKey.wasPressedThisFrame)
         {
-            // success = true;
             pl.TryPlant(PlantType.Diamond);
             ad.SetData(PlantType.Diamond);
         }
-        
-        // if(success) timer = Timer.New(0.3f, () => timer = null);
     }
     
 }

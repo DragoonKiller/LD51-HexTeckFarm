@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0d3194b57ad184cbb0189e4762e4b8, type: 3}
+  m_Name: player-anim-run
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 99b9dc29c4c77d5428dce1c889a1f247, type: 3}
+  - {fileID: 21300000, guid: 7381b37ffc3d9db4db12aa0c580f8308, type: 3}
+  - {fileID: 21300000, guid: dda9cb5a94f714540b47ec9734afc06e, type: 3}
+  frames:
+  - {fileID: 21300000, guid: 99b9dc29c4c77d5428dce1c889a1f247, type: 3}
+  - {fileID: 21300000, guid: 99b9dc29c4c77d5428dce1c889a1f247, type: 3}
+  - {fileID: 21300000, guid: 99b9dc29c4c77d5428dce1c889a1f247, type: 3}
+  - {fileID: 21300000, guid: 99b9dc29c4c77d5428dce1c889a1f247, type: 3}
+  - {fileID: 21300000, guid: 7381b37ffc3d9db4db12aa0c580f8308, type: 3}
+  - {fileID: 21300000, guid: 7381b37ffc3d9db4db12aa0c580f8308, type: 3}
+  - {fileID: 21300000, guid: 7381b37ffc3d9db4db12aa0c580f8308, type: 3}
+  - {fileID: 21300000, guid: 7381b37ffc3d9db4db12aa0c580f8308, type: 3}
+  - {fileID: 21300000, guid: dda9cb5a94f714540b47ec9734afc06e, type: 3}
+  anchors: []
+  frameCount: 12
+  fps: 40
+  loop: 1
