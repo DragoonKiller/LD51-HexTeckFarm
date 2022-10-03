@@ -26,6 +26,8 @@ public class Player : Singleton<Player>
     public SimpleAnimationAsset idleUp;
     public SimpleAnimationAsset idleDown;
     
+    public GameObject moveHint;
+    
     [SerializeField] Vector3 lastDir = Vector3.zero;
     
     public void Reset()
@@ -42,6 +44,8 @@ public class Player : Singleton<Player>
         if(Keyboard.current.upArrowKey.isPressed) targetDir += Vector3.forward;
         if(Keyboard.current.downArrowKey.isPressed) targetDir += Vector3.back;
         targetDir = targetDir.normalized;
+        
+        if(targetDir != Vector3.zero) moveHint.SetActive(false);
         
         PlayAnim(targetDir);
         
