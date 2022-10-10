@@ -50,14 +50,14 @@ public class Boss : Singleton<Boss>
         failTimes = 0;
         actions.Clear();
         
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 4; i++)
         {
             var g = i;
             actions.Add(() => {
                 inuse = true;
                 talks[g].gameObject.SetActive(true);
                 bg.gameObject.SetActive(true);
-                Timer.New(3, () => {
+                Timer.New(6, () => {
                     talks[g].gameObject.SetActive(false);
                     bg.gameObject.SetActive(false);
                     inuse = false;
